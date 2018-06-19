@@ -1,9 +1,4 @@
-const {
-  addToBasket,
-  totalPrice,
-  scan,
-  removeFromBasket,
-} = require('../src/till');
+const {Till} = require('../src/till');
 
 const apple = {
   barcode: 123,
@@ -35,10 +30,10 @@ const items = [
   banana,
   orange,
   pineapple,
-  kiwi, 
+  kiwi,
 ];
 
-test('scan finds an item by its barcode', () => {
+/*test('scan finds an item by its barcode', () => {
   expect(scan(456, items)).toEqual(banana);
 });
 
@@ -62,4 +57,18 @@ test('removeFromBasket removes the item with the given barcode from the basket',
   removeFromBasket(789, basket);
 
   expect(basket).not.toContain(orange);
+});*/
+
+describe('Till constructor', () => {
+  it('should create an object', () => {
+
+    expect(new Till()).toBeInstanceOf(Object)
+
+  });
+
+  it('should return item fruit and barcode', () => {
+    const till = new Till();
+    expect(till.scan(123)).toBe('apple')
+  });
+
 });

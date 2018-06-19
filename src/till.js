@@ -1,4 +1,4 @@
-const scan = (barcode, items) => {
+/*const scan = (barcode, items) => {
   return items.find((item) => {
     return item.barcode === barcode;
   });
@@ -18,11 +18,45 @@ const removeFromBasket = (barcode, basket) => {
   const item = scan(barcode, basket);
   const index = basket.indexOf(item);
   basket.splice(index, 1);
-}
+} */
 
-module.exports = {
-  scan,
-  addToBasket,
-  totalPrice,
-  removeFromBasket,
+
+function Till() {
+
+  this.items =
+  [{
+      fruit: 'apple',
+      barcode: 123,
+      price: 5
+  },
+  {
+      fruit: 'banana',
+      barcode: 456,
+      price: 6
+  },
+  {
+      fruit: 'orange',
+      barcode: 789,
+      price: 7
+  },
+  {
+      fruit: 'pineapple',
+      barcode: 5367,
+      price: 80
+  },
+  {
+      fruit: 'kiwi',
+      barcode: 765,
+      price: 25
+  }];
+
 };
+
+Till.prototype.scan = function (barcode) {
+  return this.items.find((item) => {
+    return item.barcode === barcode
+}).fruit;
+};
+
+module.exports = {Till};
+
