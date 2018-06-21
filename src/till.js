@@ -50,6 +50,10 @@ function Till() {
       price: 25
   }];
 
+    this.basket = [];
+
+    this.transactions = [];
+
 };
 
 Till.prototype.scan = function (barcode) {
@@ -57,6 +61,17 @@ Till.prototype.scan = function (barcode) {
     return item.barcode === barcode
 }).fruit;
 };
+
+Till.prototype.addToBasket = function (item) {
+  return this.basket.push(item)
+};
+
+Till.prototype.removeFromBasket = function (barcode) {
+  return this.basket.indexOf(this.barcode)
+
+}
+
+
 
 module.exports = {Till};
 

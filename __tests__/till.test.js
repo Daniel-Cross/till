@@ -66,9 +66,22 @@ describe('Till constructor', () => {
 
   });
 
-  it('should return item fruit and barcode', () => {
+  it('should return item fruit from barcode', () => {
     const till = new Till();
     expect(till.scan(123)).toBe('apple')
+  });
+
+  it('should add a new fruit to the basket', () => {
+    const till = new Till();
+    till.addToBasket('apple');
+    expect(till.basket).toEqual(['apple'])
+  });
+
+  it('Remove an item from the basket', () => {
+    const till = new Till();
+    till.addToBasket('apple');
+    till.addToBasket('banana');
+    expect(till.removeFromBasket(123)).toEqual(['banana'])
   });
 
 });
