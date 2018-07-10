@@ -56,20 +56,20 @@ function Till() {
 
 };
 
-Till.prototype.scan = function (barcode) {
+Till.prototype.scan = function scan(barcode) {
   return this.items.find((item) => {
     return item.barcode === barcode
 }).fruit;
 };
 
-Till.prototype.addToBasket = function (item) {
+Till.prototype.addToBasket = function addToBasket(item) {
   return this.basket.push(item)
 };
 
-Till.prototype.removeFromBasket = function (barcode) {
-  return this.basket.indexOf(this.barcode)
-
-}
+Till.prototype.removeFromBasket = function removeFromBasket(barcode) {
+  let currentBasket = this.basket.filter(item => item !== barcode);
+  return currentBasket;
+};
 
 
 

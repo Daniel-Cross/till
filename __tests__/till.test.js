@@ -1,4 +1,4 @@
-const {Till} = require('../src/till');
+const { Till } = require('../src/till');
 
 const apple = {
   barcode: 123,
@@ -81,7 +81,7 @@ describe('Till constructor', () => {
     const till = new Till();
     till.addToBasket('apple');
     till.addToBasket('banana');
-    expect(till.removeFromBasket(123)).toEqual(['banana'])
+    expect(till.removeFromBasket('apple')).toEqual(['banana'])
   });
 
 });
